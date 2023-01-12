@@ -18,6 +18,7 @@ public class AddEmployee {
         try {
             response = ApiCall.post(context.requestSetup(), RetrieveUrl.retrieveUrl("createUrl"), body);
         } catch (Exception e) {
+            context.scenario.log("Exception: " + e.getMessage());
             log.error("Exception: " + e.getMessage());
         }
         return response;

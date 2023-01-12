@@ -18,9 +18,11 @@ public class AssertTest {
 
     public static <T> void assertHard(String reason, T actual, Matcher<? super T> matcher) {
         Description description = new StringDescription();
-        description.appendText(reason).appendText("\nExpected: ").appendDescriptionOf(matcher).appendText("\n  found: ");
+        description.appendText(reason).appendText(" - \nExpected: ").appendDescriptionOf(matcher).appendText("\n  found: ");
         matcher.describeMismatch(actual, description);
+
         scenario.log(description.toString());
+        log.info(description);
 
         if (!matcher.matches(actual)) {
             throw new AssertionError(description.toString());

@@ -17,7 +17,8 @@ public class GetEmployee {
     public static Response callGetAnEmployee(TestContext context, String employeeId) {
         Response response = ApiCall.get(context.requestSetup(), RetrieveUrl.retrieveUrl("getEmployeeUrl") + employeeId);
 
-        context.scenario.log(" time milliseconds: " + response.timeIn(TimeUnit.MILLISECONDS));
+        context.scenario.log("time milliseconds: " + response.timeIn(TimeUnit.MILLISECONDS));
+        context.scenario.log("---");
 
         return response;
     }
@@ -26,7 +27,7 @@ public class GetEmployee {
         Response response = ApiCall.get(context.requestSetup(), RetrieveUrl.retrieveUrl("getAllEmployee"));
 
         context.scenario.log("time milliseconds: " + response.timeIn(TimeUnit.MILLISECONDS));
-
+        context.scenario.log("---");
         return response;
     }
 }

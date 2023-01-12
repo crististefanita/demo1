@@ -18,6 +18,7 @@ public class PutEmployee {
         try {
             response = ApiCall.put(context.requestSetup(), RetrieveUrl.retrieveUrl("updateUrl") + id, body);
         } catch (Exception e) {
+            context.scenario.log("Exception: " + e.getMessage());
             log.error("Exception: " + e.getMessage());
         }
         return response;

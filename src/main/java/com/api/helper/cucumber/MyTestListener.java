@@ -3,12 +3,9 @@ package com.api.helper.cucumber;
 import io.cucumber.plugin.ConcurrentEventListener;
 import io.cucumber.plugin.event.*;
 import lombok.extern.log4j.Log4j;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 
 @Log4j
 public class MyTestListener implements ConcurrentEventListener {
-    private static final Logger LOG = LogManager.getLogger(MyTestListener.class);
 
     @Override
     public void setEventPublisher(EventPublisher publisher) {

@@ -18,8 +18,6 @@ public class TestContext {
 
     public static Scenario scenario;
 
-    api.methods.AssertTest assertTest = new api.methods.AssertTest(scenario);
-
     public Response response;
     public Map<String, Object> session = new HashMap<String, Object>();
     private static final String CONTENT_TYPE = PropertiesFile.getProperty("content.type");

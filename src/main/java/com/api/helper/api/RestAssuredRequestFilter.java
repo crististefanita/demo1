@@ -20,7 +20,14 @@ public class RestAssuredRequestFilter implements Filter {
     @Override
     public Response filter(FilterableRequestSpecification requestSpec, FilterableResponseSpecification responseSpec, FilterContext ctx) {
         Response response = ctx.next(requestSpec, responseSpec);
-        scenario.log("\n");
+        logScenarioInfo(requestSpec, response);
+        logConsoleInfo(requestSpec, response);
+
+        return response;
+    }
+
+    private void logScenarioInfo(FilterableRequestSpecification requestSpec, Response response) {
+        scenario.log("---");
         scenario.log("Execute request: " + requestSpec.getMethod());
         scenario.log("URI: " + requestSpec.getURI());
 
@@ -32,7 +39,21 @@ public class RestAssuredRequestFilter implements Filter {
         //scenario.log("Response Header: \n"+ response.getHeaders());
 
         scenario.log("Response Body => " + response.getBody().asString());
-
-        return response;
     }
+
+    private void logConsoleInfo(FilterableRequestSpecification requestSpec, Response response) {
+        log.info("---");
+        log.info("Execute request: " + requestSpec.getMethod());
+        log.info("URI: " + requestSpec.getURI());
+
+        //log.info("Request Header: \n" + requestSpec.getHeaders());
+
+        log.info("Body: " + requestSpec.getBody());
+        log.info("Status: " + response.getStatusLine());
+
+        //log.info("Response Header: \n"+ response.getHeaders());
+
+        log.info("Response Body => " + response.getBody().asString());
+    }
+
 }

@@ -7,14 +7,16 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
-                "com.api.helper.cucumber.MyTestListener"}
+        plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
+                , "com.api.helper.cucumber.MyTestListener"
+        }
         , features = {"src/test/resources/features"}
         , glue = {"com.stepdef.employee"}
         // , dryRun = false
         , monochrome = true
         , snippets = SnippetType.CAMELCASE
-        , tags = "@Sanity"
+        //, tags = "@Sanity"
+        , tags = "@Regression"
         //  , publish = true
 )
 public class TestRunner {
