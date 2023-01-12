@@ -11,11 +11,11 @@ import org.junit.runner.RunWith;
                 "com.api.helper.cucumber.MyTestListener"}
         , features = {"src/test/resources/features"}
         , glue = {"com.stepdef.employee"}
-        //,dryRun = true
+        // , dryRun = false
         , monochrome = true
         , snippets = SnippetType.CAMELCASE
         , tags = "@Sanity"
-      //  , publish = true
+        //  , publish = true
 )
 public class TestRunner {
 

@@ -6,11 +6,11 @@ Business Need: verification of the api working fine
   Scenario: Employee details for a existing id
     Then  details of employee with id "5" and status code 200 is received
 
+  @Sanity
   @EmployeeDetails
   Scenario: Employee details api with no id passed
     Given  a employee record is not added
     Then  status code 404 is received
-
 
   @AllEmployees
   Scenario: Employee details api

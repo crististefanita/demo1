@@ -1,9 +1,10 @@
 package com.api.context;
 
-import com.api.helper.file.PropertiesFile;
 import com.api.helper.api.RestAssuredRequestFilter;
+import com.api.helper.file.PropertiesFile;
 import com.github.dzieciou.testing.curl.CurlRestAssuredConfigFactory;
 import com.github.dzieciou.testing.curl.Options;
+import io.cucumber.java.Scenario;
 import io.restassured.RestAssured;
 import io.restassured.config.RestAssuredConfig;
 import io.restassured.response.Response;
@@ -14,23 +15,27 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class TestContext {
-		
-	public Response response;
-	public Map<String, Object> session = new HashMap<String, Object>();
-	private static final String CONTENT_TYPE = PropertiesFile.getProperty("content.type");
-	
-	public RequestSpecification requestSetup() {	
-		RestAssured.reset();
 
-		Options options = Options.builder().useLogLevel(Level.INFO).build();
-		RestAssuredConfig config = CurlRestAssuredConfigFactory.createConfig(options);
+    public static Scenario scenario;
 
-		RestAssured.baseURI = PropertiesFile.getProperty("baseURL");
+    api.methods.AssertTest assertTest = new api.methods.AssertTest(scenario);
 
-		return RestAssured.given()
-				.config(config)
-				.filter(new RestAssuredRequestFilter())
-				.contentType(CONTENT_TYPE)
-				.accept(CONTENT_TYPE);
-	} 
+    public Response response;
+    public Map<String, Object> session = new HashMap<String, Object>();
+    private static final String CONTENT_TYPE = PropertiesFile.getProperty("content.type");
+
+    public RequestSpecification requestSetup() {
+        RestAssured.reset();
+
+        Options options = Options.builder().useLogLevel(Level.INFO).build();
+        RestAssuredConfig config = CurlRestAssuredConfigFactory.createConfig(options);
+
+        RestAssured.baseURI = PropertiesFile.getProperty("baseURL");
+
+        return RestAssured.given()
+                .config(config)
+                .filter(new RestAssuredRequestFilter(scenario))
+                .contentType(CONTENT_TYPE)
+                .accept(CONTENT_TYPE);
+    }
 }

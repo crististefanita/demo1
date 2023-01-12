@@ -6,12 +6,10 @@ import io.restassured.response.Response;
 public class BasicTestApi {
     protected static TestContext context;
 
+    protected static api.methods.AssertTest assertTest;
+
     public BasicTestApi() {
         context = new TestContext();
-    }
-
-    public BasicTestApi(TestContext context) {
-        this.context = context;
     }
 
     protected static Response response;

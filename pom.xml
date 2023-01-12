@@ -12,9 +12,18 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <cucumber.version>6.9.1</cucumber.version>
+        <cucumber.version>6.11.0</cucumber.version>
+
+        <extentreportsadapter.version>2.13.0</extentreportsadapter.version>
+
+        <aventstack.version>5.0.9</aventstack.version>
+
         <restassured.version>5.3.0</restassured.version>
-        <logger.version>2.0.0</logger.version>
+        <jsonsimple.version>1.1.1</jsonsimple.version>
+        <jackson.version>2.13.4.1</jackson.version>
+        <curllogger.version>2.0.1</curllogger.version>
+        <log4j.version>1.2.17</log4j.version>
+        <javafaker.version>1.0.2</javafaker.version>
     </properties>
 
     <dependencies>
@@ -70,50 +79,49 @@
         <dependency>
             <groupId>com.googlecode.json-simple</groupId>
             <artifactId>json-simple</artifactId>
-            <version>1.1.1</version>
+            <version>${jsonsimple.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>2.13.4.1</version>
+            <version>${jackson.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.github.dzieciou.testing/curl-logger -->
         <dependency>
             <groupId>com.github.dzieciou.testing</groupId>
             <artifactId>curl-logger</artifactId>
-            <version>2.0.1</version>
+            <version>${curllogger.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/tech.grasshopper/extentreports-cucumber6-adapter -->
         <dependency>
             <groupId>tech.grasshopper</groupId>
             <artifactId>extentreports-cucumber6-adapter</artifactId>
-            <version>2.1.0</version>
+            <version>${extentreportsadapter.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
         <dependency>
             <groupId>com.aventstack</groupId>
             <artifactId>extentreports</artifactId>
-            <version>5.0.4</version>
+            <version>${aventstack.version}</version>
         </dependency>
-
 
         <!-- https://mvnrepository.com/artifact/log4j/log4j -->
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
-            <version>1.2.17</version>
+            <version>${log4j.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.github.javafaker/javafaker -->
         <dependency>
             <groupId>com.github.javafaker</groupId>
             <artifactId>javafaker</artifactId>
-            <version>1.0.2</version>
+            <version>${javafaker.version}</version>
         </dependency>
 
     </dependencies>
